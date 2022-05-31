@@ -38,3 +38,130 @@ public class Agenda {
     }
 
 }
+
+
+public static void main (String [] args){
+
+        Agenda agenda = new Agenda ();
+        ArrayList <Agenda> arrayAgenda = new ArrayList <>();
+
+        String opc = "n";
+
+        do {
+            Agenda aux= new Agenda();
+
+            agenda.setNome(JOptionPane.showInputDialog("Infome o Nome: "));
+            agenda.setEndereco(JOptionPane.showInputDialog("Infome o Endereco: "));
+            agenda.setTelefone(Integer.parseInt(JOptionPane.showInputDialog("Infome o numero deo telefone: ")));
+            agenda.setEmail(JOptionPane.showInputDialog("Infome o Email "));
+
+            opc = JOptionPane.showInputDialog("Deseja Inserir mais contato?  S/N: ");
+
+        }while(opc.equals("S"));
+
+
+
+        }
+       }
+       
+       import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Exemplo {
+
+  public static void main(String[] args) throws IOException {
+    ArrayList agenda = new ArrayList();
+    Scanner ler = new Scanner(System.in);
+    int opcao;
+
+    importar(agenda);
+
+    do {
+      System.out.printf("**** Menu Principal *****\n");
+      System.out.printf("[ 1 ] Incluir Contato\n");
+      System.out.printf("[ 2 ] Excluir Contato\n");
+      System.out.printf("[ 3 ] Listar Contatos\n");
+      System.out.printf("[ 4 ] Pesquisar Contato\n");
+      System.out.printf("[ 0 ] Encerrar o Programa\n");
+      System.out.printf("\nOpcao Desejada: ");
+
+      opcao = ler.nextInt();
+
+      switch (opcao) {
+        case 1: incluir(agenda); 
+        break;
+        case 2: excluir(agenda); 
+        break;
+        case 3: listar(agenda); 
+        break;
+        case 4: pesquisar(agenda);
+      }
+
+      System.out.printf("\n\n");
+
+    } while (opcao != 0);
+
+    exportar(agenda);
+  }
+
+
+  public static void exportar(ArrayList agenda)
+    throws IOException {
+    FileWriter arq = new FileWriter("agenda.txt");
+    PrintWriter gravarArq = new PrintWriter(arq);
+    int i, n = agenda.size();
+    for (i=0; i agenda) {
+    Scanner ler = new Scanner(System.in);
+    String nome, telefone;
+
+    System.out.printf("\nInforme o nome do contato:\n");
+    nome = ler.nextLine();
+
+    System.out.printf("\nInforme o telefone do contato:\n");
+    telefone = ler.nextLine();
+
+
+    agenda.add(nome + ";" + telefone);
+  }
+
+  public static void excluir(ArrayList agenda) {
+    Scanner ler = new Scanner(System.in);
+    int i;
+
+    listar(agenda);
+
+    System.out.printf("\nInforme a posicao a ser excluida:\n");
+    i = ler.nextInt();
+
+    try {
+      agenda.remove(i);
+    } catch (IndexOutOfBoundsException e) {
+     
+        System.out.printf("\nErro: posicao invalida (%s).\n\n",
+          e.getMessage());
+    }
+  }
+
+  public static void listar(ArrayList agenda) {
+    System.out.printf("\nListadando os itens da Agenda:\n");
+    int i, n = agenda.size();
+    for (i=0; i agenda) {
+    Scanner ler = new Scanner(System.in);
+    String s;
+
+    System.out.printf("\nInforme o nome do contato:\n");
+    s = ler.nextLine();
+
+    int i, n = agenda.size();
+    s = s.toUpperCase();
+    String dados[];
+    for (i=0; i
+    
+    
+    
+
